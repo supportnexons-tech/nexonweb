@@ -22,32 +22,18 @@ export default function ContactPage() {
       />
       <section className="py-16 sm:py-20">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-            <div>
-              <ul className="space-y-5 text-sm">
-                <li className="flex items-start gap-3">
-                  <Mail className="mt-0.5 h-4 w-4 text-signal" />
-                  <a href={`mailto:${site.email}`} className="hover:text-signal">
-                    {site.email}
-                  </a>
-                </li>
-                <li className="flex items-start gap-3">
-                  <MapPin className="mt-0.5 h-4 w-4 text-signal" />
-                  <span>
-                    
-                    <br />
-                    {address.line1}
-                    <br />
-                    {address.city} {address.postal}
-                    <br />
-                    {address.country}
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div className="rounded-[28px] border border-line bg-surface p-6 sm:p-8">
-              <ContactForm />
-            </div>
+          <div className="mx-auto mb-8 flex max-w-3xl flex-col gap-4 rounded-[20px] border border-line bg-surface px-6 py-5 text-sm sm:flex-row sm:items-center sm:gap-10">
+            <a href={`mailto:${site.email}`} className="flex items-center gap-3 hover:text-signal">
+              <Mail className="h-4 w-4 text-signal" />
+              {site.email}
+            </a>
+            <span className="flex items-center gap-3">
+              <MapPin className="h-4 w-4 text-signal" />
+              {address.line1}, {address.city} {address.postal}, {address.country}
+            </span>
+          </div>
+          <div className="mx-auto max-w-3xl rounded-[28px] border border-line bg-surface p-6 sm:p-10">
+            <ContactForm />
           </div>
         </Container>
       </section>
